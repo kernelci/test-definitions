@@ -211,11 +211,11 @@ echo "========================================"
 rm -f "${skips}"
 
 if [ -n "${TST_CASENAME}" ]; then
-    ./run_kselftest.sh -t "${TST_CASENAME}" 2>&1 | tee -a "${LOGFILE}"
+	./run_kselftest.sh -t "${TST_CASENAME}" 2>&1 | tee -a "${LOGFILE}"
 elif [ -n "${TST_CMDFILES}" ]; then
     # shellcheck disable=SC2086
     for test in ${TST_CMDFILES}; do
-        ./run_kselftest.sh -c ${test} 2>&1 | tee -a "${LOGFILE}"
+	./run_kselftest.sh -c ${test} 2>&1 | tee -a "${LOGFILE}"
     done
 else
     ./run_kselftest.sh 2>&1 | tee "${LOGFILE}"
