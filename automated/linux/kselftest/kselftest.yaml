@@ -42,10 +42,11 @@ params:
     BOARD: ""
     BRANCH: ""
     ENVIRONMENT: ""
-
+    KSELFTEST_COLLETIONS: ""
+    KSELFTEST_TESTS: ""
 
 run:
     steps:
         - cd ./automated/linux/kselftest/
-        - ./kselftest.sh -t "${TESTPROG}" -s "${SKIP_INSTALL}" -u "${TESTPROG_URL}" -L "${SKIPLIST}" -S "${SKIPFILE}" -b "${BOARD}" -g "${BRANCH}" -e "${ENVIRONMENT}" -p "${KSELFTEST_PATH}"
+        - ./kselftest.sh -t "${TESTPROG}" -s "${SKIP_INSTALL}" -u "${TESTPROG_URL}" -L "${SKIPLIST}" -S "${SKIPFILE}" -b "${BOARD}" -g "${BRANCH}" -e "${ENVIRONMENT}" -p "${KSELFTEST_PATH}" -C "${KSELFTEST_COLLECTIONS}" -T "${KSELFTEST_TESTS}"
         - ../../utils/send-to-lava.sh ./output/result.txt
