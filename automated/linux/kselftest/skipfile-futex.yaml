@@ -1,0 +1,29 @@
+# This skipfile is consumable using skipgen
+# (https://github.com/Linaro/skipgen), included in this repo in
+# /automated/bin/<arch>/skipgen.
+#
+# reason:
+#   Please provide a human readable explanation of the reason for the skip.
+# url:
+#   A url referencing the issue. Often a link to the bug. Only one url may be
+#   specified.
+# environments:
+#   Should be 'production', 'staging', or 'all' for both. Our
+#   staging environment contains a very minimal skiplist. Only tests which make
+#   testing unstable should include staging.
+# boards:
+#   Should match a list of board names, or 'all' to include all boards.
+# branches:
+#   Should match a list of branch names, or 'all' to include all branches.
+# tests:
+#   List of tests to skip
+
+skiplist:
+
+  - reason: "Test a test-specific skipfile"
+    environments: all
+    boards: all
+    branches: all
+    tests:
+      - futex.futex.run.sh.futex-requeue-pi
+      
