@@ -25,5 +25,4 @@ skiplist:
     boards: all
     branches: all
     tests:
-      - futex.futex.run.sh.futex-requeue-pi
-      
+      - futex.run.sh.futex-requeue-pi
