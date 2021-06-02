@@ -1,0 +1,23 @@
+metadata:
+    name: udelay
+    format: "Lava-Test Test Definition 1.0"
+    description: "Verify that udelay() delays at least as long as requested as compared to ktime()"
+    maintainer:
+        - victording@google.com
+    os:
+        - debian
+        - ubuntu
+        - centos
+        - fedora
+    scope:
+        - udelay
+    devices:
+        - all
+    environment:
+        - lava-test-shell
+
+run:
+    steps:
+        - cd ./automated/linux/udelay/
+        - ./udelay.sh
+        - ../../utils/send-to-lava.sh ./output/result.txt
