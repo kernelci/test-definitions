@@ -25,4 +25,4 @@ skiplist:
     boards: all
     branches: all
     tests:
-      - futex:run.sh
+      - lib:scanf.sh
