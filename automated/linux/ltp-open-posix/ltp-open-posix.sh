@@ -96,7 +96,7 @@ run_ltp_open_posix() {
 run_ltp_open_posix_grp() {
     # shellcheck disable=SC2164
     GRP_TEST=$1
-    "${LTP_PRE_INSTALL}"/bin/run-posix-option-group-test.sh "${GRP_TEST}" | tee "${GRP_OUTPUT_FILE}"
+    /opt/openposix_testsuite/bin/run-posix-option-group-test.sh "${GRP_TEST}" | tee "${GRP_OUTPUT_FILE}"
     parse_ltp_grp_output
 }
 
