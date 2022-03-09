@@ -372,3 +372,14 @@ skiplist:
       - v4.4-rt
     tests:
       - ping01
+
+  - reason: >
+      ima_violations is require auditd daemon.
+    url: https://github.com/linux-test-project/ltp/issues/372
+    environments: all
+    boards:
+      - all
+    branches:
+      - all
+    tests:
+      - ima_violations
