@@ -44,11 +44,12 @@ usage() {
                     [-S kselftest-skipfile]
                     [-b board]
                     [-g branch]
-                    [-e environment]" 1>&2
+                    [-e environment]
+                    [-E ENV_NAME=ENV_VAL]" 1>&2
     exit 1
 }
 
-while getopts "i:n:c:T:t:s:u:p:L:S:b:g:e:h" opt; do
+while getopts "i:n:c:T:t:s:u:p:L:S:b:g:e:E:h" opt; do
     case "${opt}" in
         i) SHARD_INDEX="${OPTARG}" ;;
         n) SHARD_NUMBER="${OPTARG}" ;;
@@ -107,6 +108,14 @@ while getopts "i:n:c:T:t:s:u:p:L:S:b:g:e:h" opt; do
         e)
             export ENVIRONMENT="${OPTARG}"
             ;;
+        E)
+            IFS='=' read -r env_name env_val <<< "$OPTARG"
+            if [ -z "$env_name" ] || [ -z "$env_val" ]; then
+                echo "Option -E requires an argument of format ENV_NAME=ENV_VAL"
+                exit 1
+            fi
+            # Use eval to set an environment variable dynamically
+            eval "export ${env_name}='${env_val}'"
         h|*) usage ;;
     esac
 done
